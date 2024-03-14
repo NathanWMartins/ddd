@@ -1,4 +1,5 @@
 import OrderItem from "./order_item";
+
 export default class Order {
   private _id: string;
   private _customerId: string;
@@ -25,6 +26,14 @@ export default class Order {
     return this._items;
   }
 
+  changeCustomerId(customerId: string): void{
+    this._customerId = customerId;
+    this.validate();
+  }
+  changechangeItems(items: OrderItem[]): void{
+    this._items = items;
+    this.validate();
+  }
   validate(): boolean {
     if (this._id.length === 0) {
       throw new Error("Id is required");
