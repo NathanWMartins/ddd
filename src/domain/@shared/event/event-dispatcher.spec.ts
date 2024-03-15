@@ -1,4 +1,5 @@
 import Customer from "../../customer/entity/customer";
+import CustomerAddressChanged from "../../customer/event/handler/customer-address-changed.event";
 import CustomerCreatedEvent from "../../customer/event/handler/customer-created.event";
 import SendMessage1WhenCustomerAddressIsChanged from "../../customer/event/handler/send-message1-when-customer-address-is-changed.handler";
 import SendMessage1WhenCustomerIsCreated from "../../customer/event/handler/send-message1-when-customer-is-created.handler";
@@ -138,7 +139,7 @@ describe("Domain events tests", () => {
   
     customer.changeAddress(new Address("Street 2", 2, "Zipcode 2", "City 2"));
   
-    const customerAddressChangedEvent = new CustomerCreatedEvent({
+    const customerAddressChangedEvent = new CustomerAddressChanged({
       id: customer.id,
       name: customer.name,
       address: customer.Address,
