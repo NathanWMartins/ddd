@@ -1,10 +1,10 @@
 import EventHandlerInterface from "../../../@shared/event/event-handler.interface";
-import CustomerCreatedEvent from "./customer-created.event";
+import CustomerAddressChanged from "./customer-address-changed.event";
 
 export default class SendMessage1WhenCustomerAddressIsChanged
-  implements EventHandlerInterface<CustomerCreatedEvent>
+  implements EventHandlerInterface<CustomerAddressChanged>
 {
-  handle(event: CustomerCreatedEvent): void {
+  handle(event: CustomerAddressChanged): void {
     console.log(`Endereço do cliente: ${event.eventData.id}, ${event.eventData.nome} alterado para: ${event.eventData.endereco}`); 
   }
 }

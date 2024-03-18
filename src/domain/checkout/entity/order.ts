@@ -34,6 +34,15 @@ export default class Order {
     this._items = items;
     this.validate();
   }
+
+  addItem(item: OrderItem) : void {
+      if (item == undefined){
+          throw new Error("item is required");
+      }
+      this._items = this._items.filter(x => x.id != item.id);
+      this._items.push(item);
+  }
+
   validate(): boolean {
     if (this._id.length === 0) {
       throw new Error("Id is required");
